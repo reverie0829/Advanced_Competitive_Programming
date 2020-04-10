@@ -1,0 +1,33 @@
+// https://code.visualstudio.com/docs/editor/tasks
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile", // 任務名稱，與launch.json的preLaunchTask相對應
+            "command": "g++", // 要使用的編譯器 clang++  或者g++
+            "args": [
+                "${file}",
+                "-o", // 指定輸出檔名，不加該引數則預設輸出a.exe，Linux下預設a.out
+                "${fileDirname}/${fileBasenameNoExtension}.out",
+                "-g", // 生成和除錯有關的資訊
+                "-Wall", // 開啟額外警告
+                "-static-libgcc", // 靜態連結
+                // "-fcolor-diagnostics", // 彩色的錯誤資訊？但貌似clang預設開啟而gcc不接受此引數
+                // "--target=x86_64-w64-mingw", // clang的預設target為msvc，不加這一條就會找不到標頭檔案；Linux下去掉這一條
+                "-std=c++11" // C語言最新標準為c11，或根據自己的需要進行修改
+            ], // 編譯命令引數
+            "type": "shell", // 可以為shell或process，前者相當於先開啟shell再輸入命令，後者是直接執行命令
+            "group": {
+                "kind": "build",
+                "isDefault": true // 設為false可做到一個tasks.json配置多個編譯指令，需要自己修改本檔案，我這裡不多提
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always", // 在“終端”中顯示編譯資訊的策略，可以為always，silent，never。具體參見VSC的文件
+                "focus": false, // 設為true後可以使執行task時焦點聚集在終端，但對編譯c和c++來說，設為true沒有意義
+                "panel": "shared" // 不同的檔案的編譯資訊共享一個終端面板
+            },
+             //"problemMatcher":"$gcc" // 如果你不使用clang，去掉前面的註釋符，並在上一條之後加個逗號。照著我的教程做的不需要改（也可以把這行刪去)
+        }
+    ]
+}
