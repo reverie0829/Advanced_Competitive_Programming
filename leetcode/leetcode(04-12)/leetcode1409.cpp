@@ -23,13 +23,22 @@ public:
     }
 };
 
-int main()
-{
-    int n;
-    Solution s;
-    while (cin >> n)
-    {
-        cout << s. << endl;
+class Solution {
+public:
+    vector<int> processQueries(vector<int>& queries, int m) {
+        vector<int> list;
+        vector<int> ans;
+        for(int i=0;i<m;i++){
+            list.push_back(i+1);
+        }
+        for(int i=0;i<queries.size();i++){
+            for(int j=0;j<m;j++){
+                if(queries[i]==list[j]){
+                    ans.push_back(j);
+                    list.erase(list.begin()+j);
+                    list.insert(list.begin(),queries[i]);
+                }
+            }
+        }return ans;
     }
-}
-
+};
