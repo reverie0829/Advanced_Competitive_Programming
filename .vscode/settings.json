@@ -60,6 +60,9 @@
         "utility": "cpp",
         "valarray": "cpp",
         "vector": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "forward_list": "cpp"
     }
 }
