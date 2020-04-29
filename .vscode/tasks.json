@@ -14,7 +14,7 @@
                 "-static-libgcc", // 靜態連結
                 // "-fcolor-diagnostics", // 彩色的錯誤資訊？但貌似clang預設開啟而gcc不接受此引數
                 // "--target=x86_64-w64-mingw", // clang的預設target為msvc，不加這一條就會找不到標頭檔案；Linux下去掉這一條
-                "-std=c++11" // C語言最新標準為c11，或根據自己的需要進行修改
+                "-std=c++17" // C語言最新標準為c11，或根據自己的需要進行修改
             ], // 編譯命令引數
             "type": "shell", // 可以為shell或process，前者相當於先開啟shell再輸入命令，後者是直接執行命令
             "group": {
