@@ -6,13 +6,32 @@ using namespace std;
 class Solution
 {
 public:
-    int ans(int num)
+    void ans(int num)
     {
-        int sum=0;
-        for(int i=1;i<=num;i++){
-            sum+=i;
+        int arr[num];
+        memset(arr, 0, sizeof(arr));
+        if (num == 1)
+            arr[0] = 9;
+        else if (num == 2)
+        {
+            arr[0] = 9;
+            arr[1] = 8;
         }
-        return sum;
+        else if (num >= 3)
+        {
+            arr[0] = 9;
+            arr[1] = 8;
+            int print = 9, ptr = 2;
+            while (ptr != num)
+            {
+                arr[ptr++] = (print++)%10;
+            }
+        }
+        for (int i = 0; i < num; i++)
+        {
+            cout << arr[i];
+        }
+        cout << endl;
     }
 };
 
@@ -26,7 +45,7 @@ int main()
     while (t--)
     {
         ll n;
-        cin>>n;
-        cout << s.ans(n) << endl;
+        cin >> n;
+        s.ans(n);
     }
 }
