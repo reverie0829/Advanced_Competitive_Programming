@@ -1,3 +1,13 @@
+import java.util.Scanner;
+public class leetcode35{
+    public static void main(String arg[]){
+        int nums[] = {1,3,5,6};
+        Solution solution = new Solution();
+        int result = solution.searchInsert(nums,5);
+        System.out.println(result);
+    }
+}
+
 class Solution {
     public int searchInsert(int[] nums, int target) {
         int left=0;
@@ -11,7 +21,7 @@ class Solution {
                 return mid;
             }
             else if (target<nums[mid]){
-               right=mid-1; 
+                right=mid-1; 
             }
             else left=mid+1;
         }
